@@ -21,8 +21,8 @@ RUN \
   mkdir -p /etc/nginx/certs
 
 COPY ./sites-enabled/default.tmpl /etc/nginx/default.tmpl
-COPY ./ssl/cowboy.io.pem /etc/nginx/certs/cowboy.io.pem
-COPY ./ssl/cowboy.io.key /etc/nginx/certs/cowboy.io.key
+COPY ./certs/cowboy.io.pem /etc/nginx/certs/cowboy.io.pem
+COPY ./certs/cowboy.io.key /etc/nginx/certs/cowboy.io.key
 
 COPY ./boot.sh /etc/nginx/boot.sh
 RUN chmod +x /etc/nginx/boot.sh
