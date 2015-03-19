@@ -206,5 +206,3 @@ docker run -d \
        \
       --add-host dockerhost:$(ipconfig getifaddr en0) \
       latentflip/nginx
-      #-v $(PWD)/ssl:/etc/nginx/certs \
-      #-v $(PWD)/sites-enabled:/etc/nginx/sites-enabled \
