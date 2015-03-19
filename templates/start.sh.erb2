@@ -1,0 +1,9 @@
+docker run -d -P \
+      <% for @port in (3000..3100) %> -p <%=@port%>:<%=@port%> \
+      <% end %> \
+      <% for @port in (8000..8100) %> -p <%=@port%>:<%=@port%> \
+      <% end %> \
+      -v $(PWD)/ssl:/etc/nginx/certs \
+      -v $(PWD)/sites-enabled:/etc/nginx/sites-enabled \
+      --add-host dockerhost:$(ipconfig getifaddr en0) \
+      latentflip/nginx

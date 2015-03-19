@@ -1,0 +1,17 @@
+server {
+    error_log /var/log/nginx/myserve.log debug;
+
+    <% for @port in (3000..3100) %>listen <%= @port %> ssl;
+    <% end %>
+    <% for @port in (8000..8100) %>listen <%= @port %> ssl;
+    <% end %>
+
+    ssl on;
+    ssl_certificate certs/cowboy.io.pem;
+    ssl_certificate_key certs/cowboy.io.key;
+
+    location / {
+        proxy_pass http://{hostip}:$server_port;
+    }
+}
+
